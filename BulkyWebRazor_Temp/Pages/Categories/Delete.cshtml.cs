@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace BulkyWebRazor_Temp.Pages.Categories
 {
     [BindProperties]
-    public class EditModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext _db;
 
         public Category Category { get; set; }
-        public EditModel(ApplicationDbContext db)
+        public DeleteModel(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -25,14 +25,15 @@ namespace BulkyWebRazor_Temp.Pages.Categories
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid)
+            Category obj = _db.Categories.Find(Category.Id);
+            if (obj == null)
             {
-                _db.Categories.Update(Category);
-                _db.SaveChanges();
-                 TempData["success"] = "Category updated successfully";
-                return RedirectToPage("Index");
+                return NotFound();
             }
-            return Page();
+            _db.Categories.Remove(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Category deleted successfully";
+            return RedirectToPage("Index");
         }
     }
 }
