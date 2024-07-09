@@ -74,6 +74,13 @@ namespace BulkyWeb.Areas.Admin.Controllers
                     }
                     productVM.Product.ImageUrl = @"\images\product\" + fileName;
                 }
+                else
+                {
+                    if(productVM.Product.Id == 0)
+                    {
+                        productVM.Product.ImageUrl = @"\images\product\default.jpg";
+                    }
+                }
 
                 if (productVM.Product.Id == 0)
                 {
@@ -150,6 +157,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
             return Json(new { data = objProductList });
         }
 
+        [HttpDelete]
         public IActionResult Delete(int? id)
         {
             var productToBeDelete=_unitOfWork.Product.Get(u => u.Id == id);
