@@ -1,10 +1,10 @@
-name: Build and deploy .NET Core application to Web App bulksparks-mvc-dotnetmastery
+name: Build and deploy .NET Core application to Web App BulkyWeb20240716231943
 on:
   push:
     branches:
     - master
 env:
-  AZURE_WEBAPP_NAME: bulksparks-mvc-dotnetmastery
+  AZURE_WEBAPP_NAME: BulkyWeb20240716231943
   AZURE_WEBAPP_PACKAGE_PATH: BulkyWeb\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.bulksparks_mvc_dotnetmastery_5538 }}
+        publish-profile: ${{ secrets.BulkyWeb20240716231943_2243 }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
