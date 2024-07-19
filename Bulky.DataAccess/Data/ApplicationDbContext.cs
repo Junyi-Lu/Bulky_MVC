@@ -29,6 +29,20 @@ namespace Bulky.DataAccess.Data
         {
              base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
+                {
+
+                    UserName = "admin@dotnetmastery.com",
+                    Email = "admin@dotnetmastery.com",
+                    Name = "Bhrugen Patel",
+                    PhoneNumber = "1112223333",
+                    StreetAddress = "test 123 Ave",
+                    State = "IL",
+                    PostalCode = "23422",
+                    City = "Chicago"
+                });
+
             modelBuilder.Entity<Category>().HasData(
               new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
               new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
