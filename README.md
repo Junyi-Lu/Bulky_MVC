@@ -1,1 +1,4 @@
-accessiable url: [https://bulkyweb20240716231943.azurewebsites.net/](https://bulkyweb20240716231943.azurewebsites.net/)
+accessiable url: [bulkysparks.azurewebsites.net)
+test account: 
+admin@dotnetmastery.com
+Admin123*
